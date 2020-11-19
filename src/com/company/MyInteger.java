@@ -1,7 +1,7 @@
 package com.company;
 
 public class MyInteger {
-    private int value;
+    private final int value;
 
     public MyInteger(int value) {
         this.value = value;

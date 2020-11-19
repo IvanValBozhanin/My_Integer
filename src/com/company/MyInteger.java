@@ -66,22 +66,43 @@ public class MyInteger {
     }
 
     public static int parseInt(char[] c){
-        int n=0;
+        for (char ch :
+                c) {
+            if (ch > '9' || ch < '0') {
+                throw new IllegalArgumentException("Char array cannot include non-digits!");
+            }
+        }
+        if(c.length > 10){
+            throw new IllegalArgumentException("Number will be bigger than Integer!");
+        }
+        long n=0;
         for (char ch :
                 c) {
             n+=(ch-'0');
             n*=10;
         }
-        return n/10;
+        if(n>Integer.MAX_VALUE){
+            throw new IllegalArgumentException("Number will be bigger than Integer!");
+        }
+        return ((int)n)/10;
     }
 
     public static int parseInt(String s){
-        int n=0;
+        if(s.length() > 10){
+            throw new IllegalArgumentException("Number will be bigger than Integer!");
+        }
+        long n=0;
         for(int i=0;i<s.length();++i){
+            if(s.charAt(i) > '9' || s.charAt(i)<'0'){
+                throw new IllegalArgumentException("String cannot include non-digits!");
+            }
             n+=(s.charAt(i) - '0');
             n*=10;
         }
-        return n/10;
+        if(n>Integer.MAX_VALUE){
+            throw new IllegalArgumentException("Number will be bigger than Integer!");
+        }
+        return ((int)n)/10;
     }
 
     public int getValue() {

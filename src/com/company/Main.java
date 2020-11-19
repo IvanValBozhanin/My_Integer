@@ -40,5 +40,10 @@ public class Main {
         System.out.println(m1.isEven());
         System.out.println(m1.isOdd());
         System.out.println(m1.isPrime());
+
+        //Examples which throw exceptions.
+        System.out.println(MyInteger.parseInt("3000000000"));
+        System.out.println(MyInteger.parseInt("1254f15"));
+        System.out.println(MyInteger.parseInt("12d4f15".toCharArray()));
     }
 }
